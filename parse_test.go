@@ -9,9 +9,9 @@ import (
 	"sync"
 	"testing"
 
+	pg_query "github.com/cossacklabs/pg_query_go/v5"
+	"github.com/cossacklabs/pg_query_go/v5/parser"
 	"github.com/google/go-cmp/cmp"
-	pg_query "github.com/pganalyze/pg_query_go/v5"
-	"github.com/pganalyze/pg_query_go/v5/parser"
 	"google.golang.org/protobuf/testing/protocmp"
 )
 

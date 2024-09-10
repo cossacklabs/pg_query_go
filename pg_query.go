@@ -6,7 +6,7 @@ package pg_query
 import (
 	"google.golang.org/protobuf/proto"
 
-	"github.com/pganalyze/pg_query_go/v5/parser"
+	"github.com/cossacklabs/pg_query_go/v5/parser"
 )
 
 func Scan(input string) (result *ScanResult, err error) {
@@ -83,4 +83,24 @@ func SplitWithScanner(input string, trimSpace bool) (result []string, err error)
 
 func SplitWithParser(input string, trimSpace bool) (result []string, err error) {
 	return parser.SplitWithParser(input, trimSpace)
+}
+
+// Walk - Walk iterate thought Node recursively and apply Visit method
+func Walk(visit Visit, nodes ...*Node) error {
+	for _, node := range nodes {
+		if node == nil {
+			continue
+		}
+		kontinue, err := visit(node)
+		if err != nil {
+			return err
+		}
+		if kontinue {
+			err = WalkSubtree(node.Node, visit)
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
 }
