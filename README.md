@@ -1,6 +1,6 @@
 # pg_query_go [![GoDoc](https://godoc.org/github.com/pganalyze/pg_query_go/v5?status.svg)](https://godoc.org/github.com/pganalyze/pg_query_go/v5)
 
-Go version of https://github.com/pganalyze/pg_query
+A fork of the official Go version of [pg_query_go](https://github.com/pganalyze/pg_query), used in [Acra](https://github.com/cossacklabs/acra) as the source PostgreSQL parser.
 
 This Go library and its cgo extension use the actual PostgreSQL server source to parse SQL queries and return the internal PostgreSQL parse tree.
 
